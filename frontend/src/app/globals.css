@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #050B1F;
+  --navy-800: #091430;
+  --navy-700: #0D1E47;
+  --gold-400: #FFD54F;
+  --gold-500: #FFC107;
+  --gold-600: #E6A800;
+  --ember: #FF6B35;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--navy-900);
+  color: white;
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Adire / Ankara CSS geometric pattern ─── */
+.adire-bg {
+  background-color: var(--navy-900);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 12px,
+      rgba(255, 193, 7, 0.04) 12px,
+      rgba(255, 193, 7, 0.04) 13px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 12px,
+      rgba(255, 193, 7, 0.04) 12px,
+      rgba(255, 193, 7, 0.04) 13px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(255, 193, 7, 0.025) 24px,
+      rgba(255, 193, 7, 0.025) 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(255, 193, 7, 0.025) 24px,
+      rgba(255, 193, 7, 0.025) 25px
+    );
+}
+
+/* ─── Diagonal stripe accent ─── */
+.ankara-stripe {
+  background-image: repeating-linear-gradient(
+    60deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 193, 7, 0.06) 8px,
+    rgba(255, 193, 7, 0.06) 10px
+  );
+}
+
+/* ─── Gold shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #FFC107 0%,
+    #FFE082 40%,
+    #FFF9C4 50%,
+    #FFE082 60%,
+    #FFC107 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ─── Floating orbs ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(5deg); }
+  66% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+.float-slow { animation: float 8s ease-in-out infinite; }
+.float-medium { animation: float 5s ease-in-out infinite 1s; }
+.float-fast { animation: float 4s ease-in-out infinite 0.5s; }
+
+/* ─── Pulse ring ─── */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* ─── Gold border glow ─── */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3), 0 0 60px rgba(255, 193, 7, 0.1);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 193, 7, 0.5), 0 0 80px rgba(255, 193, 7, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+/* ─── Custom scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy-900); }
+::-webkit-scrollbar-thumb { background: var(--gold-600); border-radius: 3px; }
+
+/* ─── RainbowKit overrides ─── */
+[data-rk] button[data-testid="rk-connect-button"] {
+  background: linear-gradient(135deg, #FFC107, #E6A800) !important;
+  color: #050B1F !important;
+  font-weight: 700 !important;
+  font-family: var(--font-body) !important;
+}
+
+/* ─── Modal backdrop ─── */
+.modal-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─── Card glass ─── */
+.glass-card {
+  background: rgba(9, 20, 48, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 193, 7, 0.15);
+}
+
+/* ─── Countdown digits ─── */
+@keyframes tick {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  90% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* ─── Activity feed slide in ─── */
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.slide-in { animation: slide-in-right 0.4s ease forwards; }
+
+/* ─── Typewriter cursor ─── */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  color: var(--gold-500);
+}
+
+/* ─── Pool card border animate ─── */
+@keyframes border-spin {
+  to { --angle: 360deg; }
+}
