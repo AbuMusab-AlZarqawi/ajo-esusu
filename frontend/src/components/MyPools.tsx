@@ -16,8 +16,8 @@ function MyPoolItem({ poolId, userAddress }: { poolId: number; userAddress: `0x$
 
   if (!pool || !member) return null;
 
-  const [id, name, creator, contributionAmount, collateralAmount, frequency, maxMembers, memberCount, currentRound, lastCycleTimestamp, status] = pool as any[];
-  const [addr, joinedAt, collateralLocked, hasReceivedPayout, isActive] = member as any[];
+  const [id, name, creator, contributionAmount, collateralAmount, frequency, maxMembers, memberCount, currentRound, lastCycleTimestamp, status] = pool as unknown as any[];
+  const [addr, joinedAt, collateralLocked, hasReceivedPayout, isActive] = member as unknown as any[];
 
   if (!isActive) return null;
 

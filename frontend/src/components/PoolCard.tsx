@@ -29,7 +29,7 @@ export default function PoolCard({ poolId, userAddress, onJoinSuccess }: PoolCar
     );
   }
 
-  const [id, name, creator, contributionAmount, collateralAmount, frequency, maxMembers, memberCount, currentRound, lastCycleTimestamp, status] = pool as any[];
+  const [id, name, creator, contributionAmount, collateralAmount, frequency, maxMembers, memberCount, currentRound, lastCycleTimestamp, status] = pool as unknown as any[];
 
   const isFull = Number(memberCount) >= Number(maxMembers);
   const isCompleted = Number(status) !== 0;
